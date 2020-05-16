@@ -281,7 +281,7 @@ resource "aws_nat_gateway" "private" {
   count = local.private_nat_gateways_count
 
   allocation_id = element(aws_eip.private.*.id, count.index)
-  subnet_id     = ""
+  
   tags = merge(
     module.private-labels.tags,
     {
